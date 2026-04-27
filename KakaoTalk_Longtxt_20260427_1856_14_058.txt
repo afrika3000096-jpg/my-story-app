@@ -18,6 +18,7 @@ export default function AutobiographyApp() {
   const [data, setData] = useState(() => {
     try {
 
+
       const saved = localStorage.getItem("autobio_v7");
       return saved ? JSON.parse(saved) : { author: "", entries: {} };;
     } catch(e) { return { author: "", entries: {} }; }
