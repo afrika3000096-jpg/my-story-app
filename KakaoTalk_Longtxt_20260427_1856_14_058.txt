@@ -23,7 +23,7 @@ export default function AutobiographyApp() {
   });
   
   const [activeTab, setActiveTab] = useState("birth");
-  const [aiLoading, setAiLoading] = useState(false);
+  const [aiLoading, setAiLoading] = useState(false);;
   const [aiResult, setAiResult] = useState("");
   const [videoPreview, setVideoPreview] = useState(null);
   const [isSaved, setIsSaved] = useState(true);
