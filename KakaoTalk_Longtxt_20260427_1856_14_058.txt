@@ -7,7 +7,7 @@ const CHAPTERS = [
   { id: "school",   icon: "📚", title: "학창 시절",      prompt: "학교생활, 친구들, 선생님, 꿈에 대해 써주세요.",         color: "#5B8DB8" },
   { id: "youth",    icon: "🌱", title: "청년 시절",      prompt: "처음 사회에 나갔을 때, 도전과 성장에 대해 써주세요.",    color: "#6BAA75" },
   { id: "love",     icon: "❤️", title: "사랑과 관계",    prompt: "소중한 인연, 사랑, 우정에 대해 써주세요.",             color: "#C4647A" },
-  { id: "career",   icon: "💼", title: "일과 커리어",    prompt: "직업, 일하며 겪은 경험, 성취에 대해 써주세요.",         color: "#8B7EC8" },
+  { id: "career",   icon: "💼", title: "일과 커리어",    prompt: "직업, 일하며 겪은 경험, 성취에 대해 써주세요.",         color: "#8B7EC8" },;
   { id: "hardship", icon: "🌧️", title: "역경과 극복",    prompt: "힘들었던 순간과 그것을 이겨낸 이야기를 써주세요.",      color: "#7AAABB" },
   { id: "joy",      icon: "✨", title: "기쁨과 자랑",    prompt: "가장 행복했던 순간, 자랑스러운 기억을 써주세요.",       color: "#D4A843" },
   { id: "legacy",   icon: "✉️", title: "남기고 싶은 말", prompt: "가족이나 후세에게 전하고 싶은 메시지를 적어보세요.",     color: "#7BAB8B" },
