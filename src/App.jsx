@@ -61,14 +61,36 @@ export default function AutobiographyApp() {
   };
 
   const askAI = async () => {
-    if (aiLoading) return;
-    setAiLoading(true); setAiResult("");
-    setTimeout(() => {
-      setAiResult(`"${activeChapter.title}"에 대해 적어주신 글을 읽어보았습니다.\n당시의 분위기를 정말 생생하게 묘사하셨네요.\n그때 느꼈던 감정을 조금 더 깊게 들여다보면, 독자들에게 더 큰 울림을 줄 수 있을 것 같습니다.\n계속해서 당신의 이야기를 들려주세요.`);
-      setAiLoading(false);
-    }, 1500);
-  };
+  if (aiLoading) return;
 
+  try {
+    setAiLoading(true);
+    setAiResult("");
+
+    const response = await fetch(
+      "https://my-story-server-p8os.onrender.com/generate",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt: data.entries[activeTab]?.text || "",
+        }),
+      }
+    );
+
+    const result = await response.json();
+
+    setAiResult(result.result);
+
+  } catch (error) {
+    console.error(error);
+    alert("AI 서버 오류");
+  } finally {
+    setAiLoading(false);
+  }
+};
   const handleVideoUpload = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
