@@ -30,7 +30,6 @@ app.post("/generate", async (req, res) => {
     const data = await response.json();
 
     res.json({
-      res.json({
   result:
     data.output?.[0]?.content?.[0]?.text ||
     data.output_text ||
