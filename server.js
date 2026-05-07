@@ -30,8 +30,12 @@ app.post("/generate", async (req, res) => {
     const data = await response.json();
 
     res.json({
-      result: data.output_text || "AI 응답을 생성하지 못했습니다.",
-    });
+      res.json({
+  result:
+    data.output?.[0]?.content?.[0]?.text ||
+    data.output_text ||
+    "AI 응답을 생성하지 못했습니다."
+});
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "AI 서버 오류" });
