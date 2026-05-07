@@ -73,7 +73,7 @@ export default function AutobiographyApp() {
     setAiResult("");
 
     const response = await fetch(
-      "https://my-story-server-p8os.onrender.com/ai",
+      "https://my-story-server-p80s.onrender.com/generate",
       {
         method: "POST",
         headers: {
@@ -87,7 +87,7 @@ export default function AutobiographyApp() {
 
     const result = await response.json();
 
-    setAiResult(result.reply || "AI 응답 없음");
+    setAiResult(result.result || "AI 응답 없음");
 
   } catch (error) {
     console.error(error);
