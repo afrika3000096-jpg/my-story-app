@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 app.post("/generate", async (req, res) => {
   try {
     const { prompt } = req.body;
-
+console.log(process.env.OPENAI_API_KEY);
     const response = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
