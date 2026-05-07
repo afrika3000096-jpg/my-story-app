@@ -1,5 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
+import { createClient } from "@supabase/supabase-js";
 
+const supabase = createClient(
+  process.env.REACT_APP_SUPABASE_URL,
+  process.env.REACT_APP_SUPABASE_ANON_KEY
+);
 // 1. 챕터 설정 데이터
 const CHAPTERS = [
   { id: "birth",    icon: "🌅", title: "탄생과 유년기",  prompt: "태어난 곳, 어린 시절 추억, 가족에 대해 써주세요.",      color: "#E8956D" },
