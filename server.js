@@ -19,8 +19,7 @@ console.log(process.env.OPENAI_API_KEY);
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-      },
+        Authorization: `Bearer ${String(process.env.OPENAI_API_KEY).trim()}`,
       body: JSON.stringify({
         model: "gpt-4o-mini",
         input: `다음 내용을 따뜻한 자서전 문장으로 자연스럽게 다듬어 주세요. 한국어로 작성하세요:\n\n${prompt}`,
