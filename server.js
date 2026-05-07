@@ -22,27 +22,14 @@ app.post("/generate", async (req, res) => {
         Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "gpt-4.1-mini",
+        model: "gpt-4o-mini",
         input: `다음 내용을 따뜻한 자서전 문장으로 자연스럽게 다듬어 주세요. 한국어로 작성하세요:\n\n${prompt}`,
       }),
     });
 
     const data = await response.json();
 
-    res.json({
-  result:
-    data.output?.[0]?.content?.[0]?.text ||
-    data.output_text ||
-    "AI 응답을 생성하지 못했습니다."
-});
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "AI 서버 오류" });
-  }
-});
-
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`Server running on ${PORT}`);
-});
+    if (!response.ok) {
+      console.error(data);
+      return res.json({
+        result: data.error?.message || "OpenAI 오류가 발생했습니다
