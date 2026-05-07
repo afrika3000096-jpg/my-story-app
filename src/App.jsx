@@ -73,7 +73,7 @@ export default function AutobiographyApp() {
     setAiResult("");
 
     const response = await fetch(
-      "https://my-story-server-p8os.onrender.com/generate",
+      "https://my-story-back.onrender.com/api/ai",
       {
         method: "POST",
         headers: {
