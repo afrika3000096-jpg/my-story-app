@@ -38,10 +38,10 @@ app.post("/api/ai", async (req, res) => {
     console.log(data);
 
     res.json({
-      result:
-        data.choices?.[0]?.message?.content ||
-        "AI 응답이 없습니다.",
-    });
+  result:
+    data.choices?.[0]?.message?.content ||
+    JSON.stringify(data),
+});
 
   } catch (error) {
     console.error(error);
